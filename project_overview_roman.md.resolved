@@ -1,0 +1,79 @@
+# Audora AI - Project Detailed Overview (Roman English)
+
+Ye project ek AI-powered event audience intelligence platform hai jo organizers, sponsors, aur attendees ko aapas mein connect karta hai aur AI use karke unki relevance score nikalta hai.
+
+---
+
+## 🔑 User Roles aur Dashboard Redirects
+Project mein 4 main roles hain aur login ke baad har user apne relevant dashboard par redirect hota hai:
+
+1.  **Admin (👑):** `/dashboard` - Pure platform ke stats dekhna aur categories manage karna.
+2.  **Organizer (🎤):** `/dashboard/events` - Naye events create karna aur unki approval track karna.
+3.  **Sponsor (💼):** `/dashboard/sponsors` - Events approve karna aur potential high-quality leads dekhna.
+4.  **Attendee (🎟):** `/dashboard/profile` - Apna profile manage karna aur apne interest ke events dekhna.
+
+---
+
+## 🛠 Main Features ki Working
+
+### 1. Dynamic Category Management (Admin)
+Admin ke paas pure control hai ke wo platform par kaunse **Industries** aur **Event Interests** dikhana chahta hai.
+- **Working:** Admin "Categories" tab mein ja kar naye options add ya purane delete kar sakta hai. Ye options database se connect hain, isliye registration form aur event creation form mein ye real-time update ho jate hain.
+
+### 2. Intelligent Event Matching (OR-Logic)
+Attendees ko sirf wahi events "Matched for Your Profile" mein nazar aate hain jo unke liye relevant hon.
+- **Working:** Agar kisi event ki **Industry** user ki industry se match kare, YA us event ka **Interest** user ke selected interest se match kare, to wo event user ko dashboard par show ho jata hai. Isay hum "OR matching" kehte hain.
+
+### 3. AI Relevance Scoring (Registration)
+Jab koi Attendee kisi event ke liye register karta hai, to system backend par ek AI score calculate karta hai (0-100).
+- **Working:** AI score in factors par depend karta hai:
+    - **Industry Match (35%):** User ki industry aur event ka type kitna milta julta hai.
+    - **Seniority (25%):** User ka job title kitna senior hai (e.g., CEO vs Intern).
+    - **Company Size (15%):** Badi companies ke attendees ko zyada weightage milti hai.
+    - **Interest Alignment (20%):** User ka primary interest event se kitna match karta hai.
+    - **Profile Completeness (5%):** Profile kitni details se bhara hua hai.
+- **Result:** Score ke base par user ko **High**, **Moderate**, ya **Low** relevance status milta hai.
+
+### 4. Event Approval Workflow
+Ek event live hone ke liye multiple stages se guzarta hai:
+- **Draft:** Organizer event create karta hai.
+- **Pending Admin:** Admin reviews the event.
+- **Pending Sponsor:** Admin approve kar ke Sponsor ke paas bhejta hai.
+- **Approved/Live:** Sponsor approve karta hai to event attendees ko dikhne lagta hai.
+
+### 5. Sponsor Lead Center
+Sponsors ko high-quality leads pehchanne mein madad milti hai.
+- **Working:** Sponsor har lead ka **Match Score** dekh sakta hai. Ye score attendee ki relevance aur sponsor ki target industries ke base par calculate hota hai. Is se sponsors ko pata chalta hai ke kis attendee se baat karna zyada faide-mand hoga.
+
+---
+
+## 💻 Tech Stack
+- **Frontend:** React.js, Vite, TypeScript, Tailwind CSS (Design ke liye), Lucide Icons.
+- **Backend:** Node.js, Express.js.
+- **Database:** MongoDB (using Mongoose).
+- **Security:** JWT (JSON Web Tokens) for authentication aur Role-based Access Control (RBAC) protection.
+
+---
+
+## 📈 Analytics & Trends
+Dashboard par graphics aur charts ke zariye data dikhaya jata hai:
+- **Engagement Trend:** AI predict karta hai ke aane wale mahino mein engagement kaisi hogi.
+- **Audience Distribution:** Pie chart ki madad se High vs Low relevance attendees ka breakdown milta hai.
+
+---
+
+## 🌟 Ek Mukammal Scenario (Example Flow)
+
+Aayein ek example se samajhte hain ke Audora AI kaam kaise karta hai:
+
+1.  **Admin Setup:** Admin platform par naya interest add karta hai: **"AI & Machine Learning"**.
+2.  **Event Creation:** Ek Organizer (e.g., TechEvents Ltd) naya event create karta hai jiska naam hai **"Global AI Summit 2026"** aur uska interest category **"AI & Machine Learning"** select karta hai.
+3.  **User Registration:** "Ali" naam ka ek user (jo **CTO** hai ek software house mein) signup karta hai. Wo apni industry **"Technology"** select karta hai aur primary interest **"AI & Machine Learning"** rakhta hai.
+4.  **Smart Matching:** Jab Ali login karta hai, to hamara **OR-matching logic** dekhta hai ke "Global AI Summit" ka category Ali ke interest se match kar raha hai. Ali ko foran apne dashboard par ye event nazar aa jata hai.
+5.  **AI Scoring:** Ali event ke liye register karta hai. System Ali ka profile (CTO role + Technology industry) analyze karta hai aur use **85 Score (High Relevance)** deta hai.
+6.  **Sponsor Interaction:** Ek Sponsor (e.g., CloudScale) is event ko approve karta hai. Wo apne "Lead Center" mein ja kar dekhta hai ke Ali ek **"Hot Lead"** hai kyun ke uska AI score aur job title bohot high hai.
+7.  **Final Result:** Sponsor ko pata chalta hai ke Ali unke liye ek potential customer hai aur wo directly us se connect kar sakte hain.
+
+---
+
+Ye overview aapko system ki core functionality samajhne mein madad dega. Har feature ko user role aur data integrity ko dhyan mein rakh kar design kiya gaya hai.
